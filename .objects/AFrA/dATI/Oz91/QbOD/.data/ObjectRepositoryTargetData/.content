@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="-FclEq2-cUiJqV6_bU-ESA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="ebay.com/itm/227309301326" DesignTimeRectangle="1215, 387, 594, 66" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='mainContent' tag='SPAN' parentclass='x-item-title__mainTitle' /&gt;" Guid="3d5e7810-129a-4fe3-b283-cf149fdd0551" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;76a59ac2-10b3-4083-8013-b634c50e9edb&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;da4d5d58-7f36-4503-b111-0c5dbaeeab96&amp;quot;}' title='Brand New Sealed - Samsung Galaxy S24 FE 5G 128GB Black (UNLOCKED or Verizon) | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="d4cdf9cb5c786a6f40edf3252546fcf4.jpg" xmlns="">0S6VSZcUWd0GR4Jvt_w7HLg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetText</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "$ssgST=new Date().getTi…",
+  "Type": "Element",
+  "Id": "s9kLeR7sD0aw3nFW-Qh2Mg",
+  "Reference": "NLSLU8L3CUOogHTNaGFipg/s9kLeR7sD0aw3nFW-Qh2Mg",
+  "ParentRef": "NLSLU8L3CUOogHTNaGFipg/Nm-gXUOVEEK6PkFVCwf7MQ",
+  "Created": "2026-08-07T11:57:01.3189926Z",
+  "Updated": "2026-08-07T11:57:01.3189926Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

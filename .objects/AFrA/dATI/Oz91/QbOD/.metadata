@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Samsung Galaxy S24 FE 5…",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "QbOD5AQqS0KU92Nik2EwEA",
+  "Reference": "NLSLU8L3CUOogHTNaGFipg/QbOD5AQqS0KU92Nik2EwEA",
+  "ParentRef": "NLSLU8L3CUOogHTNaGFipg/Oz91sXvp6U-U4gZhm8g8lg",
+  "Created": "2026-08-06T15:10:28.3263322Z",
+  "Updated": "2026-08-06T15:10:28.3263322Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

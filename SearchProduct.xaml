@@ -1,0 +1,770 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SearchProduct" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="out_Rating" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Description" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Availability" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Price" Type="OutArgument(x:String)" />
+    <x:Property Name="out_Title" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ProductFound" Type="OutArgument(x:String)" />
+    <x:Property Name="in_ProductName" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>SearchProduct_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SearchProduct" sap:VirtualizedContainerService.HintSize="908.4000000000001,4303.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="[UiPath.UIAutomationNext.Enums.NAppCloseMode.Always]" DisplayName="Chrome Electronics, Cars, Fashion, Collectibl" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="625.6,4280" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="DebuggerApi" OpenMode="[UiPath.UIAutomationNext.Enums.NAppOpenMode.Never]" ScopeGuid="caf9e2ad-2aa4-4211-af3a-eacdc2f7ff63" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="624,4085.6" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT gh-ac'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="590.4,245.6" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="Simulate" ScopeIdentifier="caf9e2ad-2aa4-4211-af3a-eacdc2f7ff63" Text="[in_ProductName]" Version="V5">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="ebay.com" ContentHash="OdIf-ulIE0qaSNSRrId_jQ" DesignTimeRectangle="348, 181, 994, 49" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='gh-ac' tag='INPUT' /&gt;" Guid="575d0963-ab33-4f3b-9032-a4734e29361a" InformativeScreenshot="4e1cb7df70a0fe910d0bb7411f13f42f.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/7GAGUFr09UO8XFIsWVsk-A" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;32127665-d847-414e-a7aa-425b94bec549&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4624852&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;a5d9ee77-15c3-4578-8c15-888182fe76f9&amp;quot;}' title='Electronics, Cars, Fashion, Collectibles &amp;amp; More | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="590.4,193.6" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="caf9e2ad-2aa4-4211-af3a-eacdc2f7ff63" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="ebay.com" ContentHash="gUSqpSlBGUuiNFGcSp2LYw" DesignTimeRectangle="1563, 178, 210, 55" ElementType="Button" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='gh-search-btn' tag='BUTTON' type='submit' class='gh-search-button btn btn--primary' aaname='Search' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Search' /&gt;" Guid="01440d63-422e-4b64-967f-7186632db83d" InformativeScreenshot="451a567095f9f9139e304c2a1a19b2ec.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/Tn4UO5Pml06n6O4lZ_kE-w" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;0be54704-15cd-4b4e-b6db-b2c0933c926b&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4624852&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;a5d9ee77-15c3-4578-8c15-888182fe76f9&amp;quot;}' title='Electronics, Cars, Fashion, Collectibles &amp;amp; More | eBay' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1589, 195, 158, 21" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='gh-search-btn' tag='SPAN' type='' class='gh-search-button__label' aaname='Search' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Search' /&gt;" Guid="cd824d44-624d-4f0d-951b-dd7339145af1" SearchSteps="FuzzySelector" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NCheckState DisplayName="Check App State '194 results for samsung…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="590.4,3420.8" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="caf9e2ad-2aa4-4211-af3a-eacdc2f7ff63" Timeout="5" Version="V5">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="588.8,2676" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="[UiPath.UIAutomationNext.Enums.NClickType.Single]" DelayAfter="5" DisplayName="Click 'IMG'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="555.2,193.6" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="caf9e2ad-2aa4-4211-af3a-eacdc2f7ff63" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="ebay.com/sch/i.html" DesignTimeRectangle="325, 436, 320, 420" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl class='carousel__viewport' tag='DIV' parentclass='carousel__container' /&gt;" Guid="99e8cfdd-86f6-48f2-9628-6bd484b4b7d4" InformativeScreenshot="6ef44eb337060cf6e8995aa4884e8d0b.jpg" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;082d5b2d-e5db-4bbc-9b14-a41f6798c2b9&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;2351460&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;42572651-0c67-42f2-9554-e9411f9b3bcc&amp;quot;}' title='Apple Watch 11 for sale | eBay' /&gt;" SearchSteps="Selector, SemanticSelector" SemanticSelectorArgument="Container for the first sponsored product listing in the search results." SemanticSelectorFindMethod="Dom" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome Brand New Sealed - Samsung Galaxy S24" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="555.2,2422.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="DebuggerApi" ScopeGuid="75dbd91d-3c89-45a8-8087-c239a9bb165c" Version="V2">
+                    <uix:NApplicationCard.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="553.6,2228" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <TryCatch DisplayName="Product Title Try Catch" sap:VirtualizedContainerService.HintSize="520,56.8" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <TryCatch.Try>
+                              <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="449.6,24.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NGetText DisplayName="Get Text 'Samsung Galaxy S24 FE 5…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NGetText_12" ScopeIdentifier="75dbd91d-3c89-45a8-8087-c239a9bb165c" TextString="[out_Title]" Version="V5">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="ebay.com/itm/227309301326" ContentHash="-FclEq2-cUiJqV6_bU-ESA" DesignTimeRectangle="1215, 387, 594, 66" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='mainContent' tag='SPAN' parentclass='x-item-title__mainTitle' /&gt;" Guid="3d5e7810-129a-4fe3-b283-cf149fdd0551" InformativeScreenshot="d4cdf9cb5c786a6f40edf3252546fcf4.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/QbOD5AQqS0KU92Nik2EwEA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;76a59ac2-10b3-4083-8013-b634c50e9edb&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;da4d5d58-7f36-4503-b111-0c5dbaeeab96&amp;quot;}' title='Brand New Sealed - Samsung Galaxy S24 FE 5G 128GB Black (UNLOCKED or Verizon) | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                  </uix:NGetText.Target>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </uix:NGetText>
+                              </Sequence>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[out_Title]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">["N/A"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                            <TryCatch.Finally>
+                              <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </TryCatch.Finally>
+                          </TryCatch>
+                          <TryCatch DisplayName="Price Try Catch" sap:VirtualizedContainerService.HintSize="520,56.8" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <TryCatch.Try>
+                              <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="449.6,244.8" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NGetText DisplayName="Get Text 'GBP 12.99'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="75dbd91d-3c89-45a8-8087-c239a9bb165c" TextString="[out_Price]" Version="V5">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="ebay.com/itm/257241408460" DesignTimeRectangle="1215, 615, 163, 36" ElementType="Text" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl class='ux-textspans' parentid='mainContent' tag='SPAN' type='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' /&gt;" Guid="e9009406-eed0-4740-8136-8dd23588ca7c" InformativeScreenshot="2652d905433e74f7c03adda289fc4ffa.jpg" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;f2ed089e-3837-421d-8a4f-2f091fde1008&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;ad930c76-bbbf-42a3-b7d8-58a89abe3544&amp;quot;}' title='Cartier Revelation D&amp;apos;Une Panthere 18k Rose Gold Diamond Watch | eBay' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                          <uix:Target DesignTimeRectangle="1215, 614, 635, 40" FullSelectorArgument="&lt;webctrl class='x-price-primary' parentid='mainContent' tag='DIV' parentclass='x-bin-price__content' /&gt;" Guid="9798e934-627a-4065-ab70-d18f9467a365" SearchSteps="Selector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                              </Sequence>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[out_Price]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">["N/A"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                            <TryCatch.Finally>
+                              <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </TryCatch.Finally>
+                          </TryCatch>
+                          <TryCatch DisplayName="Availabilty Try Catch" sap:VirtualizedContainerService.HintSize="520,56.8" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <TryCatch.Try>
+                              <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="553.6,1170.4" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NGetText DisplayName="Get Text 'Buy It Now'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="520,193.6" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="75dbd91d-3c89-45a8-8087-c239a9bb165c" TextString="[out_Availability]" Version="V5">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="ebay.com/itm/327055632210" ContentHash="vlXiuYp1b0CKTPUxJM-GXQ" DesignTimeRectangle="1215, 570, 635, 63" ElementType="ListItem" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl parentid='mainContent' tag='LI' /&gt;" Guid="3de1552d-0812-4e2d-8dd7-5df9537fb482" InformativeScreenshot="4a59e026e0548d856f3a7cafb4c465bf.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/FpB1q6OxhU6XyuJQFfUfiw" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;07e53b33-b3ed-4d36-8f61-de5d57cf0b70&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;c466156f-527e-48a6-b68d-575c87f8d132&amp;quot;}' title='Samsung Galaxy S24 FE 5G (Unlocked, T-Mobile, Verizon) New Open Box, Never Used | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                                <Assign sap:VirtualizedContainerService.HintSize="520,174.4" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[out_Availability]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">["In Stock"]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="520,742.4" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="484.8,640.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If Condition="[out_Availability = &quot;Buy it Now&quot;]" sap:VirtualizedContainerService.HintSize="451.2,580.8" sap2010:WorkflowViewState.IdRef="If_1">
+                                        <If.Then>
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[out_Availability]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">["In Stock"]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:String">[out_Availability]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:String">["out of Stock"]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                </ui:CommentOut>
+                              </Sequence>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="553.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="520,165.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[out_Availability]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">["N/A"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                            <TryCatch.Finally>
+                              <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="553.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </TryCatch.Finally>
+                          </TryCatch>
+                          <TryCatch DisplayName="Rating Try Catch" sap:VirtualizedContainerService.HintSize="520,1036.8" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <TryCatch.Try>
+                              <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="518.4,580.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="484.8,174.4" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[out_Rating]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">["N/A"]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484.8,346.4" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                  <ui:CommentOut.Body>
+                                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,244.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NGetText DisplayName="Get Text '99.9% positiveSeller's …'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,184.8" sap2010:WorkflowViewState.IdRef="NGetText_10" ScopeIdentifier="caf9e2ad-2aa4-4211-af3a-eacdc2f7ff63" TextString="[out_Rating]" Version="V5">
+                                        <uix:NGetText.Target>
+                                          <uix:TargetAnchorable BrowserURL="ebay.com/itm/336593638925" ContentHash="USFdQ_Z2OUunaPpCBAorSw" DesignTimeRectangle="1290, 514, 424, 42" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl class='x-sellercard-atf__data-item-wrapper' parentid='mainContent' tag='DIV' parentclass='x-sellercard-atf__info' /&gt;" Guid="b77fa12e-b3e3-4f59-8b51-044a7a0fdea9" InformativeScreenshot="66bb1388072371097b58c293a6071bc8.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/ZTM4ECPSv0yKMkxTJhc5YA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;f29ae9be-124a-4bff-a503-fed066e2fe91&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;9060788d-3510-43d5-b095-639fffb39415&amp;quot;}' title='Samsung Galaxy S24 FE 5G (Verizon or AT&amp;amp;T) - New Other, Never Used | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                        </uix:NGetText.Target>
+                                      </uix:NGetText>
+                                    </Sequence>
+                                  </ui:CommentOut.Body>
+                                </ui:CommentOut>
+                              </Sequence>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="518.4,225.6" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="484.8,165.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[out_Rating]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">["N/A"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                            <TryCatch.Finally>
+                              <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="518.4,89.6" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </TryCatch.Finally>
+                          </TryCatch>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="520,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_11">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,416.8" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,356.8" sap2010:WorkflowViewState.IdRef="NMouseScroll_3" InteractionMode="HardwareEvents" MovementUnits="10" ScopeIdentifier="75dbd91d-3c89-45a8-8087-c239a9bb165c" Version="V5">
+                                  <uix:NMouseScroll.SearchedElement>
+                                    <uix:SearchedElement>
+                                      <uix:SearchedElement.InUiElement>
+                                        <InArgument x:TypeArguments="ui:UiElement" />
+                                      </uix:SearchedElement.InUiElement>
+                                      <uix:SearchedElement.OutUiElement>
+                                        <OutArgument x:TypeArguments="ui:UiElement" />
+                                      </uix:SearchedElement.OutUiElement>
+                                      <uix:SearchedElement.Target>
+                                        <uix:TargetAnchorable BrowserURL="ebay.com/itm/206252342469" ContentHash="s2m2o30I-0avj1vUnM3aXQ" DesignTimeRectangle="89, 517, 1735, 3172" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='desc_ifr' tag='IFRAME' /&gt;&lt;webctrl tag='HTML' /&gt;" Guid="2961cf95-f7e9-44f1-8b28-03af9363acd1" InformativeScreenshot="e1b64a4842efd2ea33d52b692c6a8096.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/_on_D5Y_W0WfdA6S24eB8A" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;85f16c17-35f6-4927-9207-cd3a891d4caa&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;e5a6e13e-26e3-43c7-a9cf-e15fb642b078&amp;quot;}' title='Cartier Tank Solo Large W1018355 Silver Dial 27x34mm Quartz Watch + B&amp;amp;P | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                      </uix:SearchedElement.Target>
+                                      <uix:SearchedElement.Timeout>
+                                        <InArgument x:TypeArguments="x:Double" />
+                                      </uix:SearchedElement.Timeout>
+                                    </uix:SearchedElement>
+                                  </uix:NMouseScroll.SearchedElement>
+                                </uix:NMouseScroll>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="520,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_10">
+                            <ui:CommentOut.Body>
+                              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,108" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NCheckState DisplayName="Check App State '$ssgST=new Date().getTi…'" HealingAgentBehavior="Disabled" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="75dbd91d-3c89-45a8-8087-c239a9bb165c" Version="V5">
+                                  <uix:NCheckState.IfExists>
+                                    <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,473.6" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <uix:NGetText DisplayName="Get Text 'ModelGalaxy S23+Manufa…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="NGetText_15" ScopeIdentifier="75dbd91d-3c89-45a8-8087-c239a9bb165c" TextString="[out_Description]" Version="V5">
+                                        <uix:NGetText.Target>
+                                          <uix:TargetAnchorable BrowserURL="ebay.com/itm/206252342469" ContentHash="s2m2o30I-0avj1vUnM3aXQ" DesignTimeRectangle="89, 517, 1735, 3172" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='desc_ifr' tag='IFRAME' /&gt;&lt;webctrl tag='HTML' /&gt;" Guid="2961cf95-f7e9-44f1-8b28-03af9363acd1" InformativeScreenshot="e1b64a4842efd2ea33d52b692c6a8096.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/_on_D5Y_W0WfdA6S24eB8A" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;85f16c17-35f6-4927-9207-cd3a891d4caa&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;e5a6e13e-26e3-43c7-a9cf-e15fb642b078&amp;quot;}' title='Cartier Tank Solo Large W1018355 Silver Dial 27x34mm Quartz Watch + B&amp;amp;P | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                        </uix:NGetText.Target>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </uix:NGetText>
+                                      <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="[UiPath.UIAutomationNext.Enums.NScrollDirection.Up]" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,356.8" sap2010:WorkflowViewState.IdRef="NMouseScroll_7" InteractionMode="HardwareEvents" MovementUnits="10" ScopeIdentifier="75dbd91d-3c89-45a8-8087-c239a9bb165c" Version="V5">
+                                        <uix:NMouseScroll.SearchedElement>
+                                          <uix:SearchedElement>
+                                            <uix:SearchedElement.InUiElement>
+                                              <InArgument x:TypeArguments="ui:UiElement" />
+                                            </uix:SearchedElement.InUiElement>
+                                            <uix:SearchedElement.OutUiElement>
+                                              <OutArgument x:TypeArguments="ui:UiElement" />
+                                            </uix:SearchedElement.OutUiElement>
+                                            <uix:SearchedElement.Target>
+                                              <uix:TargetAnchorable BrowserURL="ebay.com/itm/206252342469" ContentHash="PSfnuhYWYEKazbJ5zG8Hqw" DesignTimeRectangle="348, 181, 994, 49" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='gh-ac' tag='INPUT' /&gt;" Guid="1a707cd1-d5bf-41ce-b02f-5bf0c97106c9" InformativeScreenshot="756e8b2a38726cf91f31382daeb54fa7.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/Q_NhJPb5OEaGkyJSemblCA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;9261048f-c0b4-4b3a-b8e3-519bc86518bc&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;498d93e1-b55f-4b43-8ab4-015e641e67d1&amp;quot;}' title='Cartier Tank Solo Large W1018355 Silver Dial 27x34mm Quartz Watch + B&amp;amp;P | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                            </uix:SearchedElement.Target>
+                                            <uix:SearchedElement.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:SearchedElement.Timeout>
+                                          </uix:SearchedElement>
+                                        </uix:NMouseScroll.SearchedElement>
+                                      </uix:NMouseScroll>
+                                    </Sequence>
+                                  </uix:NCheckState.IfExists>
+                                  <uix:NCheckState.IfNotExists>
+                                    <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.6,591.2" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="Assign_15">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[out_Description]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">["N/A"]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="[UiPath.UIAutomationNext.Enums.NScrollDirection.Up]" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,356.8" sap2010:WorkflowViewState.IdRef="NMouseScroll_8" InteractionMode="HardwareEvents" MovementUnits="10" ScopeIdentifier="75dbd91d-3c89-45a8-8087-c239a9bb165c" Version="V5">
+                                        <uix:NMouseScroll.SearchedElement>
+                                          <uix:SearchedElement>
+                                            <uix:SearchedElement.InUiElement>
+                                              <InArgument x:TypeArguments="ui:UiElement" />
+                                            </uix:SearchedElement.InUiElement>
+                                            <uix:SearchedElement.OutUiElement>
+                                              <OutArgument x:TypeArguments="ui:UiElement" />
+                                            </uix:SearchedElement.OutUiElement>
+                                            <uix:SearchedElement.Target>
+                                              <uix:TargetAnchorable BrowserURL="ebay.com/itm/206252342469" ContentHash="PSfnuhYWYEKazbJ5zG8Hqw" DesignTimeRectangle="348, 181, 994, 49" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='gh-ac' tag='INPUT' /&gt;" Guid="1a707cd1-d5bf-41ce-b02f-5bf0c97106c9" InformativeScreenshot="756e8b2a38726cf91f31382daeb54fa7.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/Q_NhJPb5OEaGkyJSemblCA" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;9261048f-c0b4-4b3a-b8e3-519bc86518bc&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;498d93e1-b55f-4b43-8ab4-015e641e67d1&amp;quot;}' title='Cartier Tank Solo Large W1018355 Silver Dial 27x34mm Quartz Watch + B&amp;amp;P | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                            </uix:SearchedElement.Target>
+                                            <uix:SearchedElement.Timeout>
+                                              <InArgument x:TypeArguments="x:Double" />
+                                            </uix:SearchedElement.Timeout>
+                                          </uix:SearchedElement>
+                                        </uix:NMouseScroll.SearchedElement>
+                                      </uix:NMouseScroll>
+                                    </Sequence>
+                                  </uix:NCheckState.IfNotExists>
+                                  <uix:NCheckState.Target>
+                                    <uix:TargetAnchorable BrowserURL="ebay.com/itm/206252342469" ContentHash="17UGhL06_0S510XSezqauw" DesignTimeRectangle="89, 450, 1735, 3172" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='desc_ifr' tag='IFRAME' /&gt;&lt;webctrl tag='HTML' /&gt;" Guid="0cb04a9b-b2ba-431e-8239-07df6a0ea054" InformativeScreenshot="aa9bbd50a4a556408a06277ac82aebb8.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/s9kLeR7sD0aw3nFW-Qh2Mg" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;7aa9ff13-3a16-47e5-956c-f5633980971c&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;c9e009fa-9028-426e-9593-ef1e36dde22c&amp;quot;}' title='Cartier Tank Solo Large W1018355 Silver Dial 27x34mm Quartz Watch + B&amp;amp;P | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                  </uix:NCheckState.Target>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </uix:NCheckState>
+                              </Sequence>
+                            </ui:CommentOut.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:CommentOut>
+                          <TryCatch DisplayName="Description Try Catch" sap:VirtualizedContainerService.HintSize="520,681.6" sap2010:WorkflowViewState.IdRef="TryCatch_11">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <TryCatch.Try>
+                              <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[out_Description]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">["N/A"]</InArgument>
+                                  </Assign.Value>
+                                </Assign>
+                              </Sequence>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                      <Assign.To>
+                                        <OutArgument x:TypeArguments="x:String">[out_Description]</OutArgument>
+                                      </Assign.To>
+                                      <Assign.Value>
+                                        <InArgument x:TypeArguments="x:String">["N/A"]</InArgument>
+                                      </Assign.Value>
+                                    </Assign>
+                                  </Sequence>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                            <TryCatch.Finally>
+                              <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </TryCatch.Finally>
+                          </TryCatch>
+                          <Assign sap:VirtualizedContainerService.HintSize="520,165.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[out_ProductFound]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">["True"]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </uix:NApplicationCard.Body>
+                    <uix:NApplicationCard.OCREngine>
+                      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                        <ActivityFunc.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                        </ActivityFunc.Argument>
+                      </ActivityFunc>
+                    </uix:NApplicationCard.OCREngine>
+                    <uix:NApplicationCard.TargetApp>
+                      <uix:TargetApp Area="-9, -9, 1938, 1098" BrowserType="Chrome" ContentHash="RK3oL6fofky5d2hHijBl_g" IconBase64="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" InformativeScreenshot="c29bfe1eaeecf39a64f982486614b256.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/Nm-gXUOVEEK6PkFVCwf7MQ" Selector="&lt;html app='chrome.exe' title='*' idx='2' /&gt;" Url="https://www.ebay.com/itm/227309301326?_skw=samsung+galaxy+a56&amp;epid=23072674046&amp;itmmeta=01KZBYF1307RE4Q825JHY2NM0K&amp;hash=item34ecb0ae4e:g:5jsAAeSwrA1put6T&amp;itmprp=enc%3AAQALAAAA0GfYFPkwiKCW4ZNSs2u11xB9LZI2ViSgK5qMjxBsKRpGGIwwSEcEPIfC3l58RGMBjaIPj8vsq8ZV8I5kbToqIjEUYZBfcgyk5jl1%2FqUX0r72jMhB3Zp7QyslRnnq%2B2yCvHF3USnGS%2BJ34kmhZmE38uJmogNWfrFFlF2JTzMMQbN3OK%2FGf8zScKH4xAMFr9NHjAyIrOGJhcVcnGqYqTYD2tEh3%2BCvjDLqZy%2B2VzbRS06Hc05NL1BBdCrxw7RzlDefPF0MQ6sTDnuSzrFLRkTBxOk%3D%7Ctkp%3ABlBMUNaRvP76Zw" Version="V3">
+                        <uix:TargetApp.Arguments>
+                          <InArgument x:TypeArguments="x:String" />
+                        </uix:TargetApp.Arguments>
+                        <uix:TargetApp.WorkingDirectory>
+                          <InArgument x:TypeArguments="x:String" />
+                        </uix:TargetApp.WorkingDirectory>
+                      </uix:TargetApp>
+                    </uix:NApplicationCard.TargetApp>
+                  </uix:NApplicationCard>
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="588.8,400" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Warn" Message="[&quot;No Result Found : &quot; + in_ProductName]" />
+                  <Assign sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[out_ProductFound]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">["False"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="ebay.com/sch/i.html" ContentHash="P9RQ1UFyEEeu11w8nb--dw" DesignTimeRectangle="325, 308, 1163, 68" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl class='srp-controls__row-2' parentid='mainContent' tag='DIV' /&gt;" Guid="e9831d32-3ec3-4a15-a46c-edc05b6241de" InformativeScreenshot="5da9eb1b472ad48de1c9f4b610ba75d3.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/XmzfDYkjokagPfT5ak-Svg" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;9bac367e-46cb-4dc3-ad60-2b273410ddf5&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;2351460&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;a5d9ee77-15c3-4578-8c15-888182fe76f9&amp;quot;}' title='Samsung Galaxy A56 for sale | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NCheckState.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NCheckState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="590.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Search completed for : &quot; + in_ProductName]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1098" BrowserType="Chrome" ContentHash="Sg-UqUDgIkKofTVX-mrlgQ" IconBase64="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" InformativeScreenshot="cb7d62e72b6b4adf11e4c2d34bc08f60.jpg" Reference="NLSLU8L3CUOogHTNaGFipg/Oz91sXvp6U-U4gZhm8g8lg" Selector="&lt;html app='chrome.exe' title='*' /&gt;" Url="https://www.ebay.com/" Version="V3">
+          <uix:TargetApp.Arguments>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.Arguments>
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

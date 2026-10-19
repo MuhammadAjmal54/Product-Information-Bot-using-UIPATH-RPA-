@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="s2m2o30I-0avj1vUnM3aXQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="ebay.com/itm/206252342469" DesignTimeRectangle="89, 517, 1735, 3172" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='desc_ifr' tag='IFRAME' /&gt;&lt;webctrl tag='HTML' /&gt;" Guid="2961cf95-f7e9-44f1-8b28-03af9363acd1" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;85f16c17-35f6-4927-9207-cd3a891d4caa&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;e5a6e13e-26e3-43c7-a9cf-e15fb642b078&amp;quot;}' title='Cartier Tank Solo Large W1018355 Silver Dial 27x34mm Quartz Watch + B&amp;amp;P | eBay' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="e1b64a4842efd2ea33d52b692c6a8096.jpg" xmlns="">01l9xGaxGZ0uwcZHW1fgjwQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

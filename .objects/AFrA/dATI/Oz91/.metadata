@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Electronics, Cars, Fashion, Collectibl",
+  "Type": "Screen",
+  "Id": "Oz91sXvp6U-U4gZhm8g8lg",
+  "Reference": "NLSLU8L3CUOogHTNaGFipg/Oz91sXvp6U-U4gZhm8g8lg",
+  "ParentRef": "NLSLU8L3CUOogHTNaGFipg/dATIbyJe0kCd57Vfj5MOuw",
+  "Created": "2026-08-06T15:10:27.2940122Z",
+  "Updated": "2026-08-06T15:10:27.2940122Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

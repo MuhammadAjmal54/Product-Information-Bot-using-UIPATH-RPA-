@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome Electronics, Cars, Fashion, Collectibles & More  eBay",
+  "Type": "App",
+  "Id": "w-FE0hv840CmbzvK3YioSA",
+  "Reference": "NLSLU8L3CUOogHTNaGFipg/w-FE0hv840CmbzvK3YioSA",
+  "Created": "2026-08-06T03:15:36.4963229Z",
+  "Updated": "2026-08-06T03:15:36.4963229Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.1.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.7.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

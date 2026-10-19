@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryScreenData ContentHash="sMuFeieANE-ALnm6rWAn-w" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryScreenData.Data>
+    <TargetApp x:Key="TargetApp" Area="0, 0, 0, 0" Selector="&lt;html app='chrome.exe' htmlwindowname='9527ebay#{&amp;quot;parentId&amp;quot;:&amp;quot;9261048f-c0b4-4b3a-b8e3-519bc86518bc&amp;quot;,&amp;quot;parentPage&amp;quot;:&amp;quot;4429486&amp;quot;,&amp;quot;screenId&amp;quot;:&amp;quot;498d93e1-b55f-4b43-8ab4-015e641e67d1&amp;quot;}' title='Cartier Tank Solo Large W1018355 Silver Dial 27x34mm Quartz Watch + B&amp;amp;P | eBay' /&gt;" Url="ebay.com/itm/206252342469" />
+  </ObjectRepositoryScreenData.Data>
+</ObjectRepositoryScreenData>
